@@ -1,0 +1,22 @@
+# ModemManager
+systemctl |grep Modem
+systemctl stop ModemManager.service
+systemctl disable ModemManager.service
+
+apt-get purge --auto-remove -y modemmanager
+
+# hostguard
+dpkg -P hostguard
+
+# irqbalance
+apt-get purge --auto-remove -y irqbalance
+
+# polkitd
+systemctl disable polkit.service
+systemctl stop polkit.service
+
+# CloudResetPwdUpdateAgent
+bash /CloudrResetPwdAgent/bin/cloudResetPwdAgent.script remove
+bash /CloudResetPwdUpdateAgent/bin/cloudResetPwdUpdateAgent.script remove
+rm -rf /CloudrResetPwdAgent
+rm -rf /CloudResetPwdUpdateAgent
